@@ -15,7 +15,15 @@ public class EjerciciosNivel02_2021 {
     
     public boolean esEscaleraDePalabras( char [][] listaPalabras){
         
-    
+        for (int i=0; i < listaPalabras[0].length  ; i++){
+            if (listaPalabras[i][0] == listaPalabras[i+1][0]){
+                System.out.println("SON IGUALES");
+            }
+            else{
+                System.out.println("SON DISTINTOS");
+            }
+        }
+        
         return true;
     }
     
