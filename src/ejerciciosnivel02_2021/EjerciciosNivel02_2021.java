@@ -40,23 +40,16 @@ public class EjerciciosNivel02_2021 {
         //primera versión, usando los dos Strings que me pasan
         int coste = 0;  // coste de los errores
         
-        for (int i=0; i < uno.length(); i++){
-            if (uno.charAt(i) == '-'){
+        for (int i = 0; i < uno.length(); i++) {
+            if (uno.charAt(i) == '-' || dos.charAt(i) == '-') {
                 coste = coste + 2; // coste += 2;
+            } else{
+                if (uno.charAt(i) == 'G' && dos.charAt(i) != 'C') {coste++;}
+                if (uno.charAt(i) == 'C' && dos.charAt(i) != 'G') {coste++;}
+                if (uno.charAt(i) == 'A' && dos.charAt(i) != 'T') {coste++;}
+                if (uno.charAt(i) == 'T' && dos.charAt(i) != 'A') {coste++;}
             }
-            if (uno.charAt(i) == 'G'){
-                if (dos.charAt(i) != 'C'){
-                    if (dos.charAt(i) == '-'){
-                        coste = coste + 2;  // coste += 2;
-                    }
-                    else{
-                        coste++;
-                    }
-                }
-            }
-            //siguiente if
         }
-        
         return coste;
     }
     
