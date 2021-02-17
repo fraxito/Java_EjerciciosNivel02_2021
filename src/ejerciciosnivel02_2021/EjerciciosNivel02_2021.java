@@ -36,6 +36,30 @@ public class EjerciciosNivel02_2021 {
         return true;
     }
     
+    public int costeErroresADN(String uno, String dos){
+        //primera versión, usando los dos Strings que me pasan
+        int coste = 0;  // coste de los errores
+        
+        for (int i=0; i < uno.length(); i++){
+            if (uno.charAt(i) == '-'){
+                coste = coste + 2; // coste += 2;
+            }
+            if (uno.charAt(i) == 'G'){
+                if (dos.charAt(i) != 'C'){
+                    if (dos.charAt(i) == '-'){
+                        coste = coste + 2;  // coste += 2;
+                    }
+                    else{
+                        coste++;
+                    }
+                }
+            }
+            //siguiente if
+        }
+        
+        return coste;
+    }
+    
     /**
      * @param args the command line arguments
      */
