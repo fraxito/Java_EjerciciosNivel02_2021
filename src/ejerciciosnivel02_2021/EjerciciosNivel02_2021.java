@@ -171,7 +171,7 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
         System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
         System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
-        System.out.println(ejercicio.strStr("hola MMunn", "mun"));
+        System.out.println(ejercicio.strStr("Mun", "mun"));
     }
     
 }
