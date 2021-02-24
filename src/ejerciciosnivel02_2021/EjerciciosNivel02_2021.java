@@ -11,7 +11,27 @@ package ejerciciosnivel02_2021;
  */
 public class EjerciciosNivel02_2021 {
 
-
+    public String quitaAcentos(String cadena){
+        // pájaro
+        // pajaro
+        //cadena = cadena.toLowerCase();
+        cadena = cadena.replace('á', 'a');
+        cadena = cadena.replace('é', 'e');
+        cadena = cadena.replace('í', 'i');
+        cadena = cadena.replace('ó', 'o');
+        cadena = cadena.replace('ú', 'u');
+        cadena = cadena.replace('ü', 'u');
+        
+        cadena = cadena.replace('Á', 'A');
+        cadena = cadena.replace('É', 'E');
+        cadena = cadena.replace('Í', 'I');
+        cadena = cadena.replace('Ó', 'O');
+        cadena = cadena.replace('Ú', 'U');
+        cadena = cadena.replace('Ü', 'U');       
+        
+        
+        return cadena;
+    }
     
     public boolean esEscaleraDePalabras( char [][] listaPalabras){
         int contador1 = 0;
@@ -81,6 +101,11 @@ public class EjerciciosNivel02_2021 {
     }
     
     public int strStr(String str1, String str2){
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        str1 = quitaAcentos(str1);
+        str2 = quitaAcentos(str2);
+        
         int posicion = -1;
         //suponemos que no hay acentos y que todo es minúsculas
         for (int i=0; i< str1.length(); i++){
@@ -146,6 +171,7 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
         System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
         System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
+        System.out.println(ejercicio.strStr("hola MMunn", "mun"));
     }
     
 }
