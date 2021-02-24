@@ -46,6 +46,8 @@ public class EjerciciosNivel02_2021Test {
         assertEquals(-1, instance.strStr("hola MynMu", "Mun") );
         assertEquals(6, instance.strStr("hola MMunn", "Mun") );
         assertEquals(-1, instance.strStr("Mumn", "mun") );
+        assertEquals(-1, instance.strStr("", "") );
+        assertEquals(-1, instance.strStr("hola me-llamo ", "me_") );
 
 
     }
