@@ -108,9 +108,7 @@ public class EjerciciosNivel02_2021 {
                     return -1; 
                 }                
                 if (str1.charAt(i) != str2.charAt(j)){
-                    i = posicion + 1;
-                    posicion = -1;
-                    j = 0;
+                    i = posicion; //optimización Claudia
                 }
             }
         }
