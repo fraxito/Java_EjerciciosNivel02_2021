@@ -96,8 +96,21 @@ public class EjerciciosNivel02_2021 {
                 //la primera, que alguno de los dos lenght se haya terminado
                 //la segunda, que alguna letra sea distinta
                 
-                if (str1.charAt(i) == str2.charAt(j)){
-                    
+                if (j >= str2.length()){
+                    //si ha salido porque ya no tenía más letras en el str2, significa
+                    //que el str2 está dentro del str1, y además su posición está guardada
+                    //en posicion
+                    return posicion;
+                }
+                if (i >= str1.length()){
+                    //si ha salido porque ya no tenía más letras en el str1, significa
+                    //que el str2  NO está dentro del str1
+                    return -1; 
+                }                
+                if (str1.charAt(i) != str2.charAt(j)){
+                    i = posicion + 1;
+                    posicion = -1;
+                    j = 0;
                 }
             }
         }
@@ -132,6 +145,9 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.findDuplicate(new int[]{1,1,3,4,1}));
         
         System.out.println(ejercicio.strStr("hola Helios!", "el"));
+        System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
+        System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
+        System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
     }
     
 }
