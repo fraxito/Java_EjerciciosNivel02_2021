@@ -134,6 +134,7 @@ public class EjerciciosNivel02_2021 {
                 }                
                 if (str1.charAt(i) != str2.charAt(j)){
                     i = posicion; //optimización Claudia
+                    posicion = -1; 
                 }
             }
         }
@@ -161,17 +162,17 @@ public class EjerciciosNivel02_2021 {
            {'G', 'A', 'T', 'O'},
            {'M', 'A', 'T', 'O'}
         };
-        System.out.println(ejercicio.esEscaleraDePalabras(listaPalabras));
-        
-        System.out.println(ejercicio.findDuplicate(new int[]{3,2,3,4,1}));
-        System.out.println(ejercicio.findDuplicate(new int[]{4,2,3,4,1}));
-        System.out.println(ejercicio.findDuplicate(new int[]{1,1,3,4,1}));
-        
+//        System.out.println(ejercicio.esEscaleraDePalabras(listaPalabras));
+//        
+//        System.out.println(ejercicio.findDuplicate(new int[]{3,2,3,4,1}));
+//        System.out.println(ejercicio.findDuplicate(new int[]{4,2,3,4,1}));
+//        System.out.println(ejercicio.findDuplicate(new int[]{1,1,3,4,1}));
+//        
         System.out.println(ejercicio.strStr("hola Helios!", "el"));
         System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
         System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
         System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
-        System.out.println(ejercicio.strStr("Mun", "mun"));
+        System.out.println(ejercicio.strStr("Mumn", "mun"));
     }
     
 }
