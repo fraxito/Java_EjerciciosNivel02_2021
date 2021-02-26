@@ -147,7 +147,7 @@ public class EjerciciosNivel02_2021 {
     
         String [] pila  = new String [100];
         int posicionPila = 0; //indica el sitio de la pila en el que toca insertar o leer
-        System.out.println(entrada.length);
+        
         for (int i=0; i< entrada.length; i++){
             
             if (entrada[i] != "+" && entrada[i] != "-" &&entrada[i] != "*" &&entrada[i] != "/" ){
@@ -157,14 +157,15 @@ public class EjerciciosNivel02_2021 {
                 posicionPila++;
             }
             else{ //es una operación
-                Double operando1 = Double.valueOf(pila[posicionPila-1]);
-                Double operando2 = Double.valueOf(pila[posicionPila-2]);
-                if (entrada[i] == "+"){
-                    operando1 = operando1 + operando2;
-                }
-                posicionPila = posicionPila - 2;
-                pila[posicionPila] = operando1+"";  //guardo el resultado en la casilla correspondiente
-                
+                if (posicionPila - 2 >= 0){
+                    Double operando1 = Double.valueOf(pila[posicionPila - 1]);
+                    Double operando2 = Double.valueOf(pila[posicionPila - 2]);
+                    if (entrada[i] == "+"){
+                        operando1 = operando1 + operando2;
+                    }
+                    posicionPila = posicionPila - 2;
+                    pila[posicionPila] = operando1+"";  //guardo el resultado en la casilla correspondiente
+                } 
             }
             
         }
@@ -172,7 +173,7 @@ public class EjerciciosNivel02_2021 {
         
         
         
-        return "";
+        return pila[0];
     }
     
     
@@ -207,6 +208,7 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
         System.out.println(ejercicio.strStr("Mumn", "mun"));
         
+        System.out.println(ejercicio.calculadoraRPN( new String[]{"3", "2","+", "7", "*"} ) );
         ejercicio.calculadoraRPN( new String[]{"3", "2","+", "7", "*", "15", "21", "+", "-"} );
     }
     
