@@ -163,9 +163,27 @@ public class EjerciciosNivel02_2021 {
                     if (entrada[i] == "+"){
                         operando1 = operando1 + operando2;
                     }
+                    if (entrada[i] == "*"){
+                        operando1 = operando1 * operando2;
+                    }
+                    if (entrada[i] == "-"){
+                        operando1 = operando1 - operando2;
+                    }
+                    if (entrada[i] == "/"){
+                        if (operando2 == 0){
+                            return "No se puede dividir entre cero, imbécil";
+                        }
+                        else{
+                            operando1 = operando1 / operando2;
+                        }
+                    }
                     posicionPila = posicionPila - 2;
                     pila[posicionPila] = operando1+"";  //guardo el resultado en la casilla correspondiente
+                    posicionPila++;
                 } 
+                else{
+                    return "ERROR";
+                }
             }
             
         }
@@ -208,8 +226,7 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
         System.out.println(ejercicio.strStr("Mumn", "mun"));
         
-        System.out.println(ejercicio.calculadoraRPN( new String[]{"3", "2","+", "7", "*"} ) );
-        ejercicio.calculadoraRPN( new String[]{"3", "2","+", "7", "*", "15", "21", "+", "-"} );
-    }
+        System.out.println(ejercicio.calculadoraRPN( new String[]{"4", "2","/", "5", "*"} ) );
+     }
     
 }
