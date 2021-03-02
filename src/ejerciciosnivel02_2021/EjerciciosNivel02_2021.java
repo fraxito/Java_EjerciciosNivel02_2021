@@ -158,8 +158,8 @@ public class EjerciciosNivel02_2021 {
             }
             else{ //es una operación
                 if (posicionPila - 2 >= 0){
-                    Double operando1 = Double.valueOf(pila[posicionPila - 1]);
-                    Double operando2 = Double.valueOf(pila[posicionPila - 2]);
+                    double operando1 = Double.valueOf(pila[posicionPila - 1]);
+                    double operando2 = Double.valueOf(pila[posicionPila - 2]);
                     if (entrada[i] == "+"){
                         operando1 = operando1 + operando2;
                     }
@@ -195,6 +195,37 @@ public class EjerciciosNivel02_2021 {
     }
     
     
+    public boolean cabeUnaCaja( boolean[][] camion, int ancho, int alto){
+        int altoCamion = camion.length;
+        int anchoCamion = camion[0].length;
+        for (int i=0; i < altoCamion; i++){  //las filas
+            for (int j=0; j < anchoCamion; j++){ //las columnas
+                if (!camion[i][j]){ //miro si el sitio está vacio u ocupado. Si está ocupado no hago nada
+                    int horizontal = j;
+                    int vertical = i;
+                    while ((vertical - i) < alto && vertical < altoCamion && !camion[vertical][horizontal]){
+                        while ((horizontal - j) < ancho && horizontal < anchoCamion && !camion[vertical][horizontal]){
+                            horizontal++; 
+                        }
+                        if ((horizontal - j) == ancho  ){  //sí que cabe en esa linea
+                            horizontal = j; //vuelvo al inicio de la linea siguiente
+                            vertical++;
+                        } 
+                        else { //no cabe en esa línea
+                            vertical = altoCamion * 2; //esto es una argucia para indicarle al if de fuera del while que no cabe
+                        }
+                    }
+                     if ((vertical - i) == alto){ //sí que cabe, tanto de ancho como de alto
+                        return true;
+                    }
+                }
+            }
+        }
+        
+        
+        
+        return false;
+    }  
     
     
     
@@ -220,13 +251,37 @@ public class EjerciciosNivel02_2021 {
 //        System.out.println(ejercicio.findDuplicate(new int[]{4,2,3,4,1}));
 //        System.out.println(ejercicio.findDuplicate(new int[]{1,1,3,4,1}));
 //        
-        System.out.println(ejercicio.strStr("hola Helios!", "el"));
-        System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
-        System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
-        System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
-        System.out.println(ejercicio.strStr("Mumn", "mun"));
+//        System.out.println(ejercicio.strStr("hola Helios!", "el"));
+//        System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
+//        System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
+//        System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
+//        System.out.println(ejercicio.strStr("Mumn", "mun"));
+//        
+//        System.out.println(ejercicio.calculadoraRPN( new String[]{"4", "2","/", "5", "*"} ) );
+//        
+        boolean[][] camion = {
+            {true, true, true, false, false, true, true, true},
+            {true, true, true, false, false, true, true, true},
+            {true, true, true, false, false, true, true, true},
+            {true, true, true, true, true, true, false, false},
+            {true, true, true, true, true, true, false, false}
+        };
+         boolean[][] camion2 = {
+            {true, true, true, false, false, true, true, true},
+            {true, true, true, false, false, true, true, true},
+            {false, false, false, false, false, true, true, true},
+            {false, false, true, true, true, true, false, false},
+            {false, false, true, true, true, true, false, false}
+        };
+        System.out.println(ejercicio.cabeUnaCaja(camion, 2, 2));
+        System.out.println(ejercicio.cabeUnaCaja(camion, 3, 2));
+        System.out.println(ejercicio.cabeUnaCaja(camion, 2, 3));
+        System.out.println(ejercicio.cabeUnaCaja(camion, 5, 2));
         
-        System.out.println(ejercicio.calculadoraRPN( new String[]{"4", "2","/", "5", "*"} ) );
+        System.out.println(ejercicio.cabeUnaCaja(camion2, 2, 2));
+        System.out.println(ejercicio.cabeUnaCaja(camion2, 3, 2));
+        System.out.println(ejercicio.cabeUnaCaja(camion2, 2, 3));
+        System.out.println(ejercicio.cabeUnaCaja(camion2, 5, 2));
      }
     
 }
